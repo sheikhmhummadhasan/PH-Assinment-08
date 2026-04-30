@@ -1,8 +1,38 @@
 'use client'
+import { authClient } from "@/lib/auth-client";
 import { ArrowRightToSquare, Envelope } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const Signinform = () => {
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = async (e) => {
+        console.log(e)
+        const { name, email, password, phone } = e;
+        const { data, error } = await authClient.signUp.email({
+            name: name,
+            email: email,
+            password: password,
+            number: phone,
+            callbackURL: "/login"
+        });
+
+        console.log(data)
+        if (data) {
+            toast.success(`congtrulation Signup success`)
+        }
+        if (error) {
+            toast.error(`opps! best of luck try again later`)
+        }
+    }
     return (
         <div>
             <Modal>
@@ -19,32 +49,32 @@ const Signinform = () => {
                             </Modal.Header>
                             <Modal.Body className="p-6">
                                 <Surface variant="default">
-                                    <form className="flex flex-col gap-4">
-                                        <TextField className="w-full" name="name" type="text">
+                                    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+                                        <TextField className="w-full" name="name" >
                                             <Label>Name</Label>
-                                            <Input name="name" type="text" placeholder="Enter your name" />
+                                            <Input  {...register('name')} type="text" placeholder="Enter your name" />
                                         </TextField>
-                                        <TextField className="w-full" name="email" type="email">
+                                        <TextField className="w-full" name="email" >
                                             <Label>Email</Label>
-                                            <Input name="email" type="email" placeholder="Enter your email" />
+                                            <Input   {...register('email')} type="email" placeholder="Enter your email" />
                                         </TextField>
-                                        <TextField className="w-full" name="phone" type="tel">
+                                        <TextField name='phone' className="w-full">
                                             <Label>Phone</Label>
-                                            <Input name="phone" type="number" placeholder="Enter your phone number" />
+                                            <Input   {...register('phone')} type="number" placeholder="Enter your phone number" />
                                         </TextField>
                                         <TextField className="w-full" name="company">
                                             <Label>Password</Label>
-                                            <Input name="pasword" type="password" placeholder="Enter your company name" />
+                                            <Input   {...register('password')} type="password" placeholder="Enter your company name" />
                                         </TextField>
+                                        <Modal.Footer>
+                                            <Button slot="close" variant="secondary">
+                                                Cancelnput
+                                            </Button>
+                                            <Button type="submit">Submit</Button>
+                                        </Modal.Footer>
                                     </form>
                                 </Surface>
                             </Modal.Body>
-                            <Modal.Footer>
-                                <Button slot="close" variant="secondary">
-                                    Cancel
-                                </Button>
-                                <Button slot="close" type="submit">Submit</Button>
-                            </Modal.Footer>
                         </Modal.Dialog>
                     </Modal.Container>
                 </Modal.Backdrop>

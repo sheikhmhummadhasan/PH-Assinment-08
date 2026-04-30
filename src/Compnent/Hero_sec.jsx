@@ -4,19 +4,37 @@ import React from 'react';
 
 const Hero_sec = () => {
     return (
-        <div>
-            <div className="w-11/12 mx-auto flex items-center justify-between">
-                <div className="mb-30">
-                    <h1 className="text-8xl">Never Stop Learning <br />
-                        Life Never Stop Teaching</h1>
-                    <p className='text-[#545d70] my-2'>Every teaching and learning journey is unique Following
-                        We'll help guide your way.</p>
-                    <button className='flex items-center justify-center gap-2 py-2 px-5 rounded-full font-semibold text-white bg-[#5751e1]'> Start Free Trial <ArrowRight></ArrowRight></button>
-                </div>
-                <div className="bg-[url('/hero-bg.png')] bg-no-repeat h-screen bg-center">
-                    <Image src={'/hero-student.png'} alt='hero student' height={500} width={500}></Image>
-                </div>
+        <div className="w-11/12 mx-auto flex flex-col-reverse md:flex-col lg:flex-row items-center justify-between gap-6 md:gap-10 lg:gap-16 py-6 md:py-10 lg:py-16">
+
+            {/* Text */}
+            <div className="text-center md:text-center lg:text-left max-w-xl">
+
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
+                    Never Stop <span className="text-[#5751e1]">Learning</span> <br />
+                    Life Never Stop Teaching
+                </h1>
+
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#545d70] my-2 md:my-3 lg:my-4">
+                    Every teaching and learning journey is unique. We'll help guide your way.
+                </p>
+
+                <button className="mx-auto md:mx-auto lg:mx-0 flex items-center justify-center gap-2 py-2 md:py-3 px-5 md:px-6 rounded-full font-semibold text-white bg-[#5751e1]">
+                    Start Free Trial
+                </button>
+
             </div>
+
+            {/* Image */}
+            <div className="flex justify-center">
+                <Image
+                    src="/hero-photo-2.png"
+                    alt="hero"
+                    width={500}
+                    height={500}
+                    className="w-[200px] sm:w-[260px] md:w-[350px] lg:w-[500px] h-auto"
+                />
+            </div>
+
         </div>
     );
 };
