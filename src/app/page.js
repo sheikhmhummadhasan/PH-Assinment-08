@@ -1,9 +1,12 @@
-import Image from "next/image";
+import Hero_sec from '@/Compnent/Hero_sec';
+import React from 'react';
 
-export default function Home() {
+const page = () => {
   return (
     <div>
-      hello world
+      <Hero_sec></Hero_sec>
     </div>
   );
-}
+};
+
+export default page;
