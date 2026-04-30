@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch.",
+    "image": "https://i.postimg.cc/1Xq0K9nG/web-dev.png",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "React JS Mastery",
+    "instructor": "Sarah Williams",
+    "duration": "15 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Build modern UI with React and hooks.",
+    "image": "https://i.postimg.cc/Z5k8m9zV/react.png",
+    "category": "Development"
+  },
+  {
+    "id": 3,
+    "title": "JavaScript for Beginners",
+    "instructor": "Michael Brown",
+    "duration": "12 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Master JavaScript fundamentals easily.",
+    "image": "https://i.postimg.cc/X7z1vK6T/js.png",
+    "category": "Development"
+  },
+  {
+    "id": 4,
+    "title": "UI/UX Design Fundamentals",
+    "instructor": "Emily Davis",
+    "duration": "10 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Learn design principles and tools.",
+    "image": "https://i.postimg.cc/Qd6qkY2g/uiux.png",
+    "category": "Design"
+  },
+  {
+    "id": 5,
+    "title": "Advanced CSS & Tailwind",
+    "instructor": "Chris Johnson",
+    "duration": "8 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Create modern responsive layouts.",
+    "image": "https://i.postimg.cc/2y8Lk7pJ/css.png",
+    "category": "Design"
+  },
+  {
+    "id": 6,
+    "title": "Python Programming Essentials",
+    "instructor": "David Wilson",
+    "duration": "18 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn Python programming from basics.",
+    "image": "https://i.postimg.cc/3r6G7x0d/python.png",
+    "category": "Development"
+  },
+  {
+    "id": 7,
+    "title": "Data Science with Python",
+    "instructor": "Sophia Martinez",
+    "duration": "25 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Analyze data and build models.",
+    "image": "https://i.postimg.cc/9Qj2xX7R/data.png",
+    "category": "Data Science"
+  },
+  {
+    "id": 8,
+    "title": "Digital Marketing Masterclass",
+    "instructor": "James Anderson",
+    "duration": "14 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Grow business with digital marketing.",
+    "image": "https://i.postimg.cc/6q9Z1Z6M/marketing.png",
+    "category": "Marketing"
+  },
+  {
+    "id": 9,
+    "title": "Node.js & Express API",
+    "instructor": "Daniel Thomas",
+    "duration": "16 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Build backend APIs with Node.js.",
+    "image": "https://i.postimg.cc/8kq7V7XJ/node.png",
+    "category": "Development"
+  },
+  {
+    "id": 10,
+    "title": "Machine Learning A-Z",
+    "instructor": "Olivia Taylor",
+    "duration": "30 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Master machine learning concepts.",
+    "image": "https://i.postimg.cc/1Xjz9zqY/ml.png",
+    "category": "Data Science"
+  }
+]
