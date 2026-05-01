@@ -1,0 +1,76 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Complete Web Development Bootcamp",
+      "instructor": "John Doe",
+      "duration": "20 hours",
+      "rating": 4.8,
+      "level": "Beginner",
+      "price": 49,
+      "description": "Learn full-stack web development from scratch.",
+      "image": "/co1.png",
+      "category": "Development"
+    },
+    {
+      "id": 2,
+      "title": "React JS Mastery",
+      "instructor": "Sarah Williams",
+      "duration": "15 hours",
+      "rating": 4.7,
+      "level": "Intermediate",
+      "price": 39,
+      "description": "Build modern UI with React and hooks.",
+      "image": "/co2.png",
+      "category": "Development"
+    },
+    {
+      "id": 3,
+      "title": "JavaScript for Beginners",
+      "instructor": "Michael Brown",
+      "duration": "12 hours",
+      "rating": 4.6,
+      "level": "Beginner",
+      "price": 29,
+      "description": "Master JavaScript fundamentals easily.",
+      "image": "/co3.png",
+      "category": "Development"
+    },
+    {
+      "id": 4,
+      "title": "UI/UX Design Fundamentals",
+      "instructor": "Emily Davis",
+      "duration": "10 hours",
+      "rating": 4.5,
+      "level": "Beginner",
+      "price": 25,
+      "description": "Learn design principles and tools.",
+      "image": "/co4.png",
+      "category": "Design"
+    },
+    {
+      "id": 5,
+      "title": "Advanced CSS & Tailwind",
+      "instructor": "Chris Johnson",
+      "duration": "8 hours",
+      "rating": 4.7,
+      "level": "Intermediate",
+      "price": 19,
+      "description": "Create modern responsive layouts.",
+      "image": "/co5.png",
+      "category": "Design"
+    },
+    {
+      "id": 6,
+      "title": "Python Programming Essentials",
+      "instructor": "David Wilson",
+      "duration": "18 hours",
+      "rating": 4.8,
+      "level": "Beginner",
+      "price": 45,
+      "description": "Learn Python programming from basics.",
+      "image": "/co6.png",
+      "category": "Development"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import CourceCard from './CourceCard';
 
 const Cource = () => {
+    
     const cource = [
         {
             id: 1,
@@ -46,7 +47,7 @@ const Cource = () => {
 
                 {/* Header */}
                 <div className="flex flex-col justify-center items-center gap-2 text-center max-w-xl">
-                    <div className="bg-[#efeefe] text-[#5751e7] rounded-full py-2 px-5 text-xs sm:text-sm">
+                    <div className="bg-[#efeefe] text-[#5751e7] rounded-full py-2 px-5 text-xl sm:text-sm">
                         Trending Categories
                     </div>
 

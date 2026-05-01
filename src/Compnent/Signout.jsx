@@ -1,22 +1,27 @@
-import { authClient } from '@/lib/auth-client';
-import { Button } from '@heroui/react';
-import React from 'react';
+'use client'
 
-const Signout = async() => {
+import { authClient } from '@/lib/auth-client'
+import { Button } from '@heroui/react'
+import { useRouter } from 'next/navigation'
 
+const Signout = () => {
+  const router = useRouter()
+
+  const handleLogout = async () => {
     await authClient.signOut({
-        fetchOptions: {
-            onSuccess: () => {
-                router.push("/login"); // redirect to login page
-            },
+      fetchOptions: {
+        onSuccess: () => {
+          router.push('/login')
         },
-    });
+      },
+    })
+  }
 
-    return (
-        <div>
-            <Button variant="secondary">Sign out</Button>
-        </div>
-    );
-};
+  return (
+    <Button onClick={handleLogout} variant="secondary">
+      Sign out
+    </Button>
+  )
+}
 
-export default Signout;
+export default Signout
