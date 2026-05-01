@@ -3,7 +3,7 @@ import React from 'react';
 
 const CourceCard = ({e}) => {
     const {image, name, que} = e;
-    console.log(e)
+    // console.log(e)
     return (
         <div>
             <div className="flex flex-col border border-[#525858cc] rounded-2xl p-5 items-center justify-center gap-2">

@@ -1,78 +1,131 @@
 'use client'
 import { authClient } from "@/lib/auth-client";
-import { ArrowRightToSquare, Envelope } from "@gravity-ui/icons";
+import { ArrowRightToSquare } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Signinform = () => {
+
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = async (e) => {
-        console.log(e)
-        const { name, email, password, phone } = e;
-        const { data, error } = await authClient.signUp.email({
-            name: name,
-            email: email,
-            password: password,
-            number: phone,
-            callbackURL: "/login"
-        });
+    const onSubmit = async (formData) => {
+        const { name, email, password, phone } = formData;
 
-        console.log(data)
-        if (data) {
-            toast.success(`congtrulation Signup success`)
+        try {
+            setLoading(true);
+
+            const { data, error } = await authClient.signUp.email({
+                name,
+                email,
+                password,
+                number: phone,
+                callbackURL: "/login"
+            });
+
+            console.log({ data, error });
+
+            if (error) {
+                toast.error(error.message || "Signup failed");
+                return;
+            }
+
+            if (data) {
+                toast.success("Signup successful 🎉");
+                router.push("/login"); 
+            }
+
+        } catch (err) {
+            console.log(err);
+            toast.error("Something went wrong");
+        } finally {
+            setLoading(false);
         }
-        if (error) {
-            toast.error(`opps! best of luck try again later`)
-        }
-    }
+    };
+
     return (
         <div>
             <Modal>
-                <Button variant="secondary">Sign In</Button>
+                <Button variant="secondary">Sign Up</Button>
+
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
                         <Modal.Dialog className="sm:max-w-md">
                             <Modal.CloseTrigger />
+
                             <Modal.Header>
                                 <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
-                                    <ArrowRightToSquare className='text-2xl'></ArrowRightToSquare>
+                                    <ArrowRightToSquare className='text-2xl' />
                                 </Modal.Icon>
-                                <Modal.Heading>SignIn</Modal.Heading>
+                                <Modal.Heading>Sign Up</Modal.Heading>
                             </Modal.Header>
+
                             <Modal.Body className="p-6">
                                 <Surface variant="default">
+
                                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                                        <TextField className="w-full" name="name" >
+
+                                        <TextField className="w-full">
                                             <Label>Name</Label>
-                                            <Input  {...register('name')} type="text" placeholder="Enter your name" />
+                                            <Input
+                                                {...register('name', { required: "Name is required" })}
+                                                type="text"
+                                                placeholder="Enter your name"
+                                            />
+                                            {errors.name && <span className="text-red-500 text-sm">{errors.name.message}</span>}
                                         </TextField>
-                                        <TextField className="w-full" name="email" >
+
+                                        <TextField className="w-full">
                                             <Label>Email</Label>
-                                            <Input   {...register('email')} type="email" placeholder="Enter your email" />
+                                            <Input
+                                                {...register('email', { required: "Email is required" })}
+                                                type="email"
+                                                placeholder="Enter your email"
+                                            />
+                                            {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
                                         </TextField>
-                                        <TextField name='phone' className="w-full">
+
+                                        {/* ✅ Phone */}
+                                        <TextField className="w-full">
                                             <Label>Phone</Label>
-                                            <Input   {...register('phone')} type="number" placeholder="Enter your phone number" />
+                                            <Input
+                                                {...register('phone')}
+                                                type="tel"
+                                                placeholder="Enter your phone number"
+                                            />
                                         </TextField>
-                                        <TextField className="w-full" name="company">
+
+                                        <TextField className="w-full">
                                             <Label>Password</Label>
-                                            <Input   {...register('password')} type="password" placeholder="Enter your company name" />
+                                            <Input
+                                                {...register('password', { required: "Password is required" })}
+                                                type="password"
+                                                placeholder="Enter your password"
+                                            />
+                                            {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
                                         </TextField>
+
                                         <Modal.Footer>
                                             <Button slot="close" variant="secondary">
-                                                Cancelnput
+                                                Cancel
                                             </Button>
-                                            <Button type="submit">Submit</Button>
+
+                                            <Button type="submit" disabled={loading}>
+                                                {loading ? "Signing up..." : "Sign Up"}
+                                            </Button>
                                         </Modal.Footer>
+
                                     </form>
+
                                 </Surface>
                             </Modal.Body>
                         </Modal.Dialog>

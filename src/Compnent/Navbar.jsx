@@ -1,9 +1,12 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import LoginForm from './LoginForm';
+import { authClient } from '@/lib/auth-client';
 
 
 const Navbar = () => {
+    const { data: session } = authClient.useSession()
     return (
         <div>
             <nav className='flex-col lg:flex flex-row items-center justify-between p-7'>
@@ -23,8 +26,12 @@ const Navbar = () => {
                     <Link  href={'/profile'}>My Profile</Link>
                 </div>
                 <div className="flex items-center justify-center gap-2">
-                    <Image height={50} width={50} src={'/profile-photo.png'} alt='profile photo' className='rounded-full'></Image>
-                    <LoginForm></LoginForm>
+                    {
+                        <Image height={50} width={50} src={session?.user?.image || '/profile-photo.png'} alt='profile photo' className='rounded-full'></Image>
+                        
+                    }
+                    <h2 className="text-xl font-semibold">Welcome <br /> <span className='text-[#5157e1]'>{session?.user?.name}</span></h2>
+                     <LoginForm></LoginForm> 
                 </div>
             </nav>
         </div>
