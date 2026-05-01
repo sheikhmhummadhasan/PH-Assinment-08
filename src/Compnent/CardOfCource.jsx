@@ -3,7 +3,7 @@ import React from 'react';
 import Card from './Card';
 
 const CardOfCource = async () => {
-    const res = await fetch('http://localhost:5000/courses',{cache: "no-store"});
+    const res = await fetch('http://localhost:5000/courses', { cache: "no-store" });
     const prom = await res.json()
     return (
         <div>
@@ -15,14 +15,11 @@ const CardOfCource = async () => {
                     <h1 className="text-5xl font-bold">Explore Our Worlds Best Courses</h1>
                     <p className='text-[#6D6C80] '>When known printer took a galley of type scrambl edmake</p>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {
-                        prom.map(e => {
-                            return(
-
-                                <Card key={e.id} e={e}></Card>
-                            )
-                        })
+                        prom.map(e => (
+                            <Card key={e.id} e={e} />
+                        ))
                     }
                 </div>
             </div>
