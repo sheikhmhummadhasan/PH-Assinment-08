@@ -4,9 +4,12 @@ import Link from 'next/link';
 import LoginForm from './LoginForm';
 import { authClient } from '@/lib/auth-client';
 import Signout from './Signout';
+import { usePathname } from 'next/navigation';
 
 
 const Navbar = () => {
+    const path = usePathname()
+    console.log(path)
     const { data: session } = authClient.useSession()
     return (
         <div>
@@ -22,9 +25,9 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="flex my-3 justify-center lg:items-center gap-4">
-                    <Link href={'/'}>Home</Link>
-                    <Link href={'/courses'}>Courses</Link>
-                    <Link href={'/profile'}>My Profile</Link>
+                    <Link className={path === '/' ? 'text-[#5751e1] font-semibold' : ' font-semibold'} href={'/'}>Home</Link>
+                    <Link className={path === '/courses' ? 'text-[#5751e1] font-semibold' : ' font-semibold'} href={'/courses'}>Courses</Link>
+                    <Link className={path === '/profile' ? 'text-[#5751e1] font-semibold' : ' font-semibold'} href={'/profile'}>My Profile</Link>
                 </div>
                 <div className="flex items-center justify-center gap-2">
 
