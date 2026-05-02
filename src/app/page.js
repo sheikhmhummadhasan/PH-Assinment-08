@@ -16,7 +16,7 @@ const page = () => {
       <Instractor></Instractor>
       <Cource></Cource>
       <Marquery></Marquery>
-      <CourceCard></CourceCard>
+   
       <UnderMark></UnderMark>
       <Stay></Stay>
     </div>
