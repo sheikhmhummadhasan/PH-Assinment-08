@@ -8,8 +8,7 @@ import { usePathname } from 'next/navigation';
 
 
 const Navbar = () => {
-    const path = usePathname()
-    console.log(path)
+    const path = usePathname();
     const { data: session } = authClient.useSession()
     return (
         <div>

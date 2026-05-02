@@ -9,18 +9,21 @@ const Signout = () => {
 
   const handleLogout = async () => {
     await authClient.signOut({
+      
       fetchOptions: {
         onSuccess: () => {
           router.push('/login')
         },
       },
     })
+    router.push('/')
   }
 
   return (
     <Button onClick={handleLogout} variant="secondary">
       Sign out
     </Button>
+
   )
 }
 

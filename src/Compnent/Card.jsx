@@ -1,14 +1,20 @@
+'use client'
+import { authClient } from '@/lib/auth-client';
 import { ArrowRight, StarFill } from '@gravity-ui/icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
+import LoginForm from './LoginForm';
 
 const Card = ({ e }) => {
     if (!e) {
         return null
     }
+    // const [openModal, setOpenModal] = useState(false);
     const { category, image, description, level, rating, duration, instructor, title, id } = e;
     // console.log(e)
+    const { data: session } = authClient.useSession()
+    console.log(session?.user)
     return (
         <div>
             <div className="p-5 mt-2 sm:p-6 md:p-7 border border-[#6D6C80] rounded-xl shadow-md bg-white 
@@ -47,13 +53,15 @@ const Card = ({ e }) => {
 
                 {/* Button */}
                 <div className="flex justify-end mt-4">
-                    <Link
-                        className="flex items-center gap-2 py-2 px-4 text-sm sm:text-base font-semibold 
+                    {
+                        session?.user ? <Link
+                            className="flex items-center gap-2 py-2 px-4 text-sm sm:text-base font-semibold 
                        bg-amber-500 border border-black rounded-full hover:bg-amber-600 transition"
-                        href={`/${id}`}
-                    >
-                        See Details <ArrowRight />
-                    </Link>
+                            href={`/${id}`}
+                        >
+                            See Details <ArrowRight />
+                        </Link> : <LoginForm ></LoginForm>
+                    }
                 </div>
             </div>
         </div>

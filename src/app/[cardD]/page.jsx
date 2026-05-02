@@ -24,7 +24,6 @@ const CArdDetail = ({ params }) => {
         <h1 className="text-3xl">Loading...</h1>
     }
 
-    console.log(card)
     if (!card) {
         return null
     }
