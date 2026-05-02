@@ -3,7 +3,7 @@ import React from 'react';
 import Card from './Card';
 
 const CardOfCource = async () => {
-    const res = await fetch('http://localhost:5000/courses', { cache: "no-store" });
+    const res = await fetch('https://ph-assinment-08.vercel.app/courses', { cache: "no-store" });
     const prom = await res.json()
     return (
         <div>

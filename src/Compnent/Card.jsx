@@ -10,11 +10,11 @@ const Card = ({ e }) => {
     if (!e) {
         return null
     }
-    // const [openModal, setOpenModal] = useState(false);
+
     const { category, image, description, level, rating, duration, instructor, title, id } = e;
-    // console.log(e)
+
     const { data: session } = authClient.useSession()
-    console.log(session?.user)
+
     return (
         <div>
             <div className="p-5 mt-2 sm:p-6 md:p-7 border border-[#6D6C80] rounded-xl shadow-md bg-white 

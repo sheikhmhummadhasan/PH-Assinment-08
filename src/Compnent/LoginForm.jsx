@@ -9,11 +9,8 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 
 const LoginForm = () => {
-
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
-
   const handelGoogle = async () => {
     try {
       setLoading(true);
@@ -23,26 +20,20 @@ const LoginForm = () => {
       });
     } catch (err) {
       toast.error("Google login failed");
-      console.log(err);
+      // console.log(err);
     } finally {
       setLoading(false);
     }
   };
-
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-
   const onSubmit = async (formData) => {
     const { email, password } = formData;
-
     try {
       setLoading(true);
-
       const { data, error } = await authClient.signIn.email({
         email,
         password,
@@ -50,25 +41,22 @@ const LoginForm = () => {
         callbackURL: "/",
         redirect: false
       });
-
-      console.log({ data, error });
-
       if (error) {
         toast.error(error.message || "Login failed");
         return;
       }
-
       if (data) {
         toast.success("Login successful");
         router.push("/");
       }
-
     } catch (err) {
       toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }
   };
+
+  const { data: session } = authClient.useSession()
 
   return (
     <div>

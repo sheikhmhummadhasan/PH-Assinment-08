@@ -12,7 +12,7 @@ const CArdDetail = ({ params }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`http://localhost:5000/courses/${cardD}`);
+            const res = await fetch(`https://ph-assinment-08.vercel.app/courses/${cardD}`);
             const data = await res.json();
             setCard(data)
             setLoading(false)
