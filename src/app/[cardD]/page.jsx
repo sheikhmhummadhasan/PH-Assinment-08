@@ -3,7 +3,7 @@ import { ArrowRight, StarFill } from '@gravity-ui/icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { use, useEffect, useState } from 'react';
-
+export const dynamic = 'force-dynamic'
 const CArdDetail = ({ params }) => {
 
     const { cardD } = use(params);
@@ -12,9 +12,10 @@ const CArdDetail = ({ params }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://ph-assinment-08.vercel.app/courses/${cardD}`);
+            const res = await fetch(`https://ph-assinment-08.vercel.app/db.json`);
             const data = await res.json();
-            setCard(data)
+            const couorce = data.courses.find((e) => e.id == cardD)
+            setCard(couorce)
             setLoading(false)
         };
         fetchData();
