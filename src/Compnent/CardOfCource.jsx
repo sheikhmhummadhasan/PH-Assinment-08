@@ -3,7 +3,7 @@ import React from 'react';
 import Card from './Card';
 export const dynamic = 'force-dynamic'
 const CardOfCource = async () => {
-    const res = await fetch('/db.json', { cache: "no-store" });
+    const res = await fetch('https://ph-assinment-08.vercel.app/db.json', { cache: "no-store" });
     const prom = await res.json()
     return (
         <div>
