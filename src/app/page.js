@@ -11,14 +11,14 @@ import React from 'react';
 const page = () => {
   return (
     <div>
-      <Hero_sec></Hero_sec>
+      {/* <Hero_sec></Hero_sec>
       <CardOfCource></CardOfCource>
       <Instractor></Instractor>
       <Cource></Cource>
       <Marquery></Marquery>
    
       <UnderMark></UnderMark>
-      <Stay></Stay>
+      <Stay></Stay> */}
     </div>
   );
 };
