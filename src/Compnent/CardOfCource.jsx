@@ -3,8 +3,9 @@ import React from 'react';
 import Card from './Card';
 export const dynamic = 'force-dynamic'
 const CardOfCource = async () => {
-    const res = await fetch('https://ph-assinment-08.vercel.app/db.json', { cache: "no-store" });
+    const res = await fetch(`${process.env.BETTER_AUTH_URL}/db.json`, { cache: "no-store" });
     const prom = await res.json()
+    console.log(prom)
     return (
         <div>
             <div className="flex flex-col items-center justify-center w-11/12 mx-auto">
@@ -17,7 +18,7 @@ const CardOfCource = async () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {
-                        prom.map(e => (
+                        prom.courses.map(e => (
                             <Card key={e.id} e={e} />
                         ))
                     }

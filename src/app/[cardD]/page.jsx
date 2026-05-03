@@ -12,7 +12,7 @@ const CArdDetail = ({ params }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`https://ph-assinment-08.vercel.app/db.json`);
+            const res = await fetch(`${process.env.BETTER_AUTH_URL}/db.json`);
             const data = await res.json();
             const couorce = data.courses.find((e) => e.id == cardD)
             setCard(couorce)
